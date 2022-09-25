@@ -1,0 +1,61 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: An AWS Serverless Application.
+
+Globals:
+  Function:
+    MemorySize: 128
+    Architectures: [ "arm64" ]
+    Runtime: dotnet6
+    Timeout: 30
+    Tracing: Active
+
+Resources:
+  SmsReminderLambda:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: ../src/SmsReminderLambda/
+      Handler: SmsReminderLambda::SmsReminderLambda.Function::SendSms
+      Policies:
+        - Version: '2012-10-17'
+          Statement:
+            # Deny topic and platform applications
+            - Effect: Deny
+              Action:
+                - sns:Publish
+              Resource: arn:aws:sns:*:*:*
+            # Allow only SMS
+            - Effect: Allow
+              Action:
+                - sns:Publish
+              Resource: "*"
+
+  EmailReminderLambda:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: ../src/EmailReminderLambda/
+      Handler: EmailReminderLambda::EmailReminderLambda.Function::SendEmail
+      Policies:
+        - Version: '2012-10-17'
+          Statement:
+            Effect: Allow
+            Action:
+              - ses:SendEmail
+              - ses:SendRawEmail
+            Resource: '*'
+
+  ReminderStepFunction:
+    Type: AWS::Serverless::StateMachine
+    Properties:
+      DefinitionUri: ./reminder-step-function-definition.json
+      DefinitionSubstitutions:
+        SmsReminderLambdaArn: !GetAtt SmsReminderLambda.Arn
+        EmailReminderLambdaArn: !GetAtt EmailReminderLambda.Arn
+      Policies:
+        - Version: "2012-10-17"
+          Statement:
+            - Effect: Allow
+              Action: lambda:InvokeFunction
+              Resource:
+                - !GetAtt SmsReminderLambda.Arn
+                - !GetAtt EmailReminderLambda.Arn

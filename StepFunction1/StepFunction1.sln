@@ -1,0 +1,55 @@
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{1BDEB55E-EF3F-4503-BB56-FA1F412382E2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tst", "tst", "{05668A47-874A-407E-813B-2311B9A86AD4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmsReminderLambda", "src\SmsReminderLambda\SmsReminderLambda.csproj", "{8CA20431-E71F-48E5-98BC-C9161891175F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmsReminderLambda.Tests", "tst\SmsReminderLambda.Tests\SmsReminderLambda.Tests.csproj", "{9F48B15E-2A0A-45C0-BB76-2F85894D5A10}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "deploy", "deploy", "{2DA8FECF-1139-45C4-AD9B-29A30425F5C0}"
+	ProjectSection(SolutionItems) = preProject
+		deploy\template.yaml = deploy\template.yaml
+		deploy\reminder-step-function-definition.json = deploy\reminder-step-function-definition.json
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmailReminderLambda", "src\EmailReminderLambda\EmailReminderLambda.csproj", "{44A549F3-EE1E-4E87-8FC5-A0DBBB48196D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmailReminderLambda.Tests", "tst\EmailReminderLambda.Tests\EmailReminderLambda.Tests.csproj", "{EEB431C0-3833-4E67-A88D-7A24F4F55188}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{E2E50D6A-5F6A-4D60-97CF-45587202AA7A}"
+	ProjectSection(SolutionItems) = preProject
+		docs\stepfunction_diagram.svg = docs\stepfunction_diagram.svg
+		docs\diagram.png = docs\diagram.png
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8CA20431-E71F-48E5-98BC-C9161891175F} = {1BDEB55E-EF3F-4503-BB56-FA1F412382E2}
+		{9F48B15E-2A0A-45C0-BB76-2F85894D5A10} = {05668A47-874A-407E-813B-2311B9A86AD4}
+		{44A549F3-EE1E-4E87-8FC5-A0DBBB48196D} = {1BDEB55E-EF3F-4503-BB56-FA1F412382E2}
+		{EEB431C0-3833-4E67-A88D-7A24F4F55188} = {05668A47-874A-407E-813B-2311B9A86AD4}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8CA20431-E71F-48E5-98BC-C9161891175F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8CA20431-E71F-48E5-98BC-C9161891175F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8CA20431-E71F-48E5-98BC-C9161891175F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8CA20431-E71F-48E5-98BC-C9161891175F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F48B15E-2A0A-45C0-BB76-2F85894D5A10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F48B15E-2A0A-45C0-BB76-2F85894D5A10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F48B15E-2A0A-45C0-BB76-2F85894D5A10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F48B15E-2A0A-45C0-BB76-2F85894D5A10}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44A549F3-EE1E-4E87-8FC5-A0DBBB48196D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44A549F3-EE1E-4E87-8FC5-A0DBBB48196D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44A549F3-EE1E-4E87-8FC5-A0DBBB48196D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44A549F3-EE1E-4E87-8FC5-A0DBBB48196D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EEB431C0-3833-4E67-A88D-7A24F4F55188}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEB431C0-3833-4E67-A88D-7A24F4F55188}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEB431C0-3833-4E67-A88D-7A24F4F55188}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEB431C0-3833-4E67-A88D-7A24F4F55188}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

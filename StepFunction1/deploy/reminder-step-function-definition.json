@@ -1,0 +1,65 @@
+{
+  "Comment": "Function to send messages by email or sms",
+  "StartAt": "Choice SMS or EMAIL",
+  "States": {
+    "Choice SMS or EMAIL": {
+      "Type": "Choice",
+      "Choices": [
+        {
+          "Variable": "$.protocol",
+          "StringEquals": "sms",
+          "Next": "Invoke SMS Lambda"
+        },
+        {
+          "Variable": "$.protocol",
+          "StringEquals": "email",
+          "Next": "Invoke EMAIL Lambda"
+        }
+      ]
+    },
+    "Invoke SMS Lambda": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::lambda:invoke",
+      "OutputPath": "$.Payload",
+      "Parameters": {
+        "Payload.$": "$",
+        "FunctionName": "${SmsReminderLambdaArn}"
+      },
+      "Retry": [
+        {
+          "ErrorEquals": [
+            "Lambda.ServiceException",
+            "Lambda.AWSLambdaException",
+            "Lambda.SdkClientException"
+          ],
+          "IntervalSeconds": 2,
+          "MaxAttempts": 6,
+          "BackoffRate": 2
+        }
+      ],
+      "End": true
+    },
+    "Invoke EMAIL Lambda": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::lambda:invoke",
+      "OutputPath": "$.Payload",
+      "Parameters": {
+        "Payload.$": "$",
+        "FunctionName": "${SmsReminderLambdaArn}"
+      },
+      "Retry": [
+        {
+          "ErrorEquals": [
+            "Lambda.ServiceException",
+            "Lambda.AWSLambdaException",
+            "Lambda.SdkClientException"
+          ],
+          "IntervalSeconds": 2,
+          "MaxAttempts": 6,
+          "BackoffRate": 2
+        }
+      ],
+      "End": true
+    }
+  }
+}

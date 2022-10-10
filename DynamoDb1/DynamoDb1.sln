@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{1E0F6FA5-3ECE-4257-BB68-F783EAC8FC36}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tst", "tst", "{FDC04FB6-7549-4E60-AE13-F85B3AD85EF4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DynamoDb1", "src\DynamoDb1\DynamoDb1.csproj", "{016FEED9-6D31-4156-88BE-7B040D5AA103}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DynamoDb1.IntegrationTests", "tst\DynamoDb1.IntegrationTests\DynamoDb1.IntegrationTests.csproj", "{9B867191-0FCD-48D1-8832-C01FF17BC2CF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{016FEED9-6D31-4156-88BE-7B040D5AA103}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{016FEED9-6D31-4156-88BE-7B040D5AA103}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{016FEED9-6D31-4156-88BE-7B040D5AA103}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{016FEED9-6D31-4156-88BE-7B040D5AA103}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B867191-0FCD-48D1-8832-C01FF17BC2CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B867191-0FCD-48D1-8832-C01FF17BC2CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B867191-0FCD-48D1-8832-C01FF17BC2CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B867191-0FCD-48D1-8832-C01FF17BC2CF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{016FEED9-6D31-4156-88BE-7B040D5AA103} = {1E0F6FA5-3ECE-4257-BB68-F783EAC8FC36}
+		{9B867191-0FCD-48D1-8832-C01FF17BC2CF} = {FDC04FB6-7549-4E60-AE13-F85B3AD85EF4}
+	EndGlobalSection
+EndGlobal
